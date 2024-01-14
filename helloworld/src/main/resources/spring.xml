@@ -7,6 +7,6 @@
     <bean class="org.ieening.dao.impl.ProductDaoMysqlImpl" id="productDaoMysqlImpl" />
     <bean class="org.ieening.dao.impl.ProductDaoOracleImpl" id="productDaoOracleImpl" />
     <bean class="org.ieening.service.impl.ProductServiceImpl" id="productService">
-        <property name="productDao" ref="productDaoOracleImpl"></property>
+        <property name="productDao" ref="productDaoMysqlImpl"></property> <!-- 注释1-->
     </bean>
 </beans>
