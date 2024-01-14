@@ -7,8 +7,16 @@ import org.ieening.entity.Product;
 import org.ieening.service.ProductService;
 
 public class ProductServiceImpl implements ProductService {
-    ProductDao productDao = new ProductDaoMysqlImpl();
-    // ProductDao productDao = new ProductDaoOracleImpl();
+    // ProductDao productDao = new ProductDaoMysqlImpl();
+    ProductDao productDao = new ProductDaoOracleImpl();
+
+    public ProductDao getProductDao() {
+        return productDao;
+    }
+
+    public void setProductDao(ProductDao productDao) {
+        this.productDao = productDao;
+    }
 
     @Override
     public Product getProductById() {

@@ -3,6 +3,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean class="org.ieening.withspring.entity.Product" id="product" />
-    <bean class=""></bean>
+    <bean class="org.ieening.entity.Product" id="product" />
+    <bean class="org.ieening.dao.impl.ProductDaoMysqlImpl" id="productDaoMysqlImpl" />
+    <bean class="org.ieening.dao.impl.ProductDaoOracleImpl" id="productDaoOracleImpl" />
+    <bean class="org.ieening.service.impl.ProductServiceImpl" id="productService">
+        <property name="productDao" ref="productDaoOracleImpl"></property>
+    </bean>
 </beans>
