@@ -3,9 +3,22 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- ! 如何获取 Bean XML 配置 -->
+    <!-- ! 1、如何获取 Bean XML 配置 -->
     <bean class="com.ieening.NormalBean" id="testGetBeanNormalBeanId"
         name="testGetBeanNormalBeanName" />
     <alias name="testGetBeanNormalBeanName" alias="testGetBeanNormalBeanNameAlias" />
-    <!-- ! 使用 -->
+
+    <!-- ! 2、通过依赖注⼊，在 spring 创建对象的同时，为其属性赋值。依赖注⼊的⽅式有三种：
+        Set注⼊
+        构造函数注⼊
+        ⾃动注⼊ 
+    -->
+    <!-- ? 2.1 创建对象时，Spring ⼯⼚会通过 Set ⽅法为对象的属性赋值 -->
+    <bean class="com.ieening.NormalBean" id="testAttributeInjectNormalBeanId">
+        <!-- * bean attributes -->
+        <!-- * 2.1.1 基本数据类型 + 字符串类型 + 时间类型（注意格式） -->
+        <property name="attributeInteger" value="1" />
+        <property name="attributeString" value="string attribute" />
+        <property name="attributeDate" value="2024/01/16 08:25:20" />
+    </bean>
 </beans>
