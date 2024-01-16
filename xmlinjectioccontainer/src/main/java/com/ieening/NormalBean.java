@@ -6,9 +6,17 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class NormalBean {
 
     private Integer attributeInteger;
@@ -20,8 +28,10 @@ public class NormalBean {
     private Map<String, String> attributeMap;
     private Properties attributeProperties;
 
-    public NormalBean() {
+    private CustomBean customBean;
 
+    public NormalBean(CustomBean customBean) {
+        this.customBean = customBean;
     }
 
 }
