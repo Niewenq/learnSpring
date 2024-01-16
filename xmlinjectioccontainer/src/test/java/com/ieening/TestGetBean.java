@@ -30,7 +30,7 @@ public class TestGetBean {
      */
     @Test
     public void testGetBeanById() {
-        Object normalBean = classPathXmlApplicationContext.getBean("normalBeanId");
+        Object normalBean = classPathXmlApplicationContext.getBean("testGetBeanNormalBeanId");
         assertTrue(normalBean instanceof NormalBean);
     }
 
@@ -39,7 +39,7 @@ public class TestGetBean {
      */
     @Test
     public void testGetBeanByName() {
-        Object normalBean = classPathXmlApplicationContext.getBean("normalBeanName");
+        Object normalBean = classPathXmlApplicationContext.getBean("testGetBeanNormalBeanName");
         assertTrue(normalBean instanceof NormalBean);
     }
 
@@ -48,7 +48,16 @@ public class TestGetBean {
      */
     @Test
     public void testGetBeanByNameAndClass() {
-        Object normalBean = classPathXmlApplicationContext.getBean("normalBeanName", NormalBean.class);
+        Object normalBean = classPathXmlApplicationContext.getBean("testGetBeanNormalBeanName", NormalBean.class);
+        assertTrue(normalBean instanceof NormalBean);
+    }
+
+    /**
+     * ! 5、通过 xml 配置文件中配置的别名获取 Bean
+     */
+    @Test
+    public void testGetBeanByAlias() {
+        Object normalBean = classPathXmlApplicationContext.getBean("testGetBeanNormalBeanNameAlias");
         assertTrue(normalBean instanceof NormalBean);
     }
 
