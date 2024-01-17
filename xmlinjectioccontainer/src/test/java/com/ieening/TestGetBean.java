@@ -17,12 +17,12 @@ public class TestGetBean {
     }
 
     /**
-     * ! 1、通过类获取 bean
+     * ! 1、通过类获取 bean，注意需要唯一，否则报错
      */
     @Test
     public void testGetBeanByClass() {
-        NormalBean normalBean = classPathXmlApplicationContext.getBean(NormalBean.class);
-        assertTrue(normalBean instanceof NormalBean);
+        CustomBean customBean = classPathXmlApplicationContext.getBean(CustomBean.class);
+        assertTrue(customBean instanceof CustomBean);
     }
 
     /**

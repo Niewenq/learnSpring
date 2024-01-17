@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- ! 1、实例化 bean -->
+    <!-- ? 1.1 通过构造器实例化 bean -->
+    <bean class="com.ieening.NormalBean" id="testInstanceBeanWithConstructorId"
+        name="testInstanceBeanWithConstructorName" />
+    <!-- ? 1.2 通过静态⼯⼚⽅法实例化 bean -->
+    <import resource="spring.xml" />
+    <bean class="com.ieening.NormalBean" id="testInstanceBeanWithStaticFactoryMethodId"
+        factory-method="createInstance" depends-on="testAttributeInjectCustomBeanId">
+        <constructor-arg name="customBean" ref="testAttributeInjectCustomBeanId" />
+    </bean>
+    <!-- ? 1.2 通过实例⼯⼚⽅法实例化 bean -->
+    <bean class="com.ieening.BeanFactory" id="beanFactoryId" />
+    <bean factory-bean="beanFactoryId" factory-method="createNormalBean"
+        id="testNormalBeanWithInstanceFactoryMethod">
+    </bean>
+
+    <!-- ! 2、生命周期回调 -->
+    <bean class="com.ieening.LifecycleBeanWithInterface" id="testLifecycleBeanWithInterfaceId"></bean>
+
+
+</beans>

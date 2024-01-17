@@ -7,15 +7,15 @@ import java.util.Properties;
 import java.util.Set;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Setter
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @ToString
 public class NormalBean {
 
@@ -34,4 +34,7 @@ public class NormalBean {
         this.customBean = customBean;
     }
 
+    public static NormalBean createInstance(CustomBean customBean) {
+        return new NormalBean(customBean);
+    }
 }
