@@ -20,7 +20,16 @@
     </bean>
 
     <!-- ! 2、生命周期回调 -->
-    <bean class="com.ieening.LifecycleBeanWithInterface" id="testLifecycleBeanWithInterfaceId"></bean>
+    <!-- ? 2.1 实现接口 -->
+    <bean class="com.ieening.LifecycleBeanWithInterface" id="testLifecycleBeanWithInterfaceId"
+        lazy-init="true"></bean>
+    <!-- ? 2.2 init-method 和 destroy-method -->
+    <bean class="com.ieening.LifecycleBeanWithInitDestroyMethod"
+        id="testLifecycleBeanWithInitDestroyMethodId" init-method="init" destroy-method="destroy"
+        lazy-init="true" />
+    <!-- ! 3、bean 作用域 -->
+    <bean class="com.ieening.SingletonScopeBean" id="testSingletonScopeBeanId" scope="singleton"></bean>
+    <bean class="com.ieening.PrototypeScopeBean" id="testPrototypeScopeBeanId" scope="prototype"></bean>
 
 
 </beans>

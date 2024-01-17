@@ -15,8 +15,25 @@ public class LifecycleBeanWithInterface implements InitializingBean, DisposableB
         return count;
     }
 
-    private boolean afterPropertiesSet = false;
-    private boolean destroy = false;
+    private static boolean afterPropertiesSet = false;
+
+    public static void setAfterPropertiesSet(boolean afterPropertiesSet) {
+        LifecycleBeanWithInterface.afterPropertiesSet = afterPropertiesSet;
+    }
+
+    public static boolean isAfterPropertiesSet() {
+        return afterPropertiesSet;
+    }
+
+    private static boolean destroy = false;
+
+    public static void setDestroy(boolean destroy) {
+        LifecycleBeanWithInterface.destroy = destroy;
+    }
+
+    public static boolean isDestroy() {
+        return destroy;
+    }
 
     @Override
     public void destroy() throws Exception {
