@@ -17,6 +17,9 @@ public class TestBeanScope {
                 "spring_high_order.xml");
     }
 
+    /**
+     * ! 1、测试 Singleton 作用域
+     */
     @Test
     public void testSingleton() {
         Object firstBean = classPathXmlApplicationContext.getBean("testSingletonScopeBeanId");
@@ -24,6 +27,9 @@ public class TestBeanScope {
         assertEquals(firstBean, secondBean);
     }
 
+    /**
+     * ! 2、测试 Prototype 作用域
+     */
     @Test
     public void testPrototype() {
         Object firstBean = classPathXmlApplicationContext.getBean("testPrototypeScopeBeanId");

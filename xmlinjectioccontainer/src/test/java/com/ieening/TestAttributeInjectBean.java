@@ -16,6 +16,9 @@ public class TestAttributeInjectBean {
                 "spring.xml");
     }
 
+    /**
+     * ! 1、使用 set 方法注入
+     */
     @Test
     public void testAttributeInjectWithSetter() {
         NormalBean normalBean = classPathXmlApplicationContext.getBean("testAttributeInjectWithSetterNormalBeanId",
@@ -24,6 +27,9 @@ public class TestAttributeInjectBean {
         assertEquals(expectedString, normalBean.toString());
     }
 
+    /**
+     * ! 2、使用构造器方法注入
+     */
     @Test
     public void testAttributeInjectWithConstructor() {
         NormalBean normalBean = classPathXmlApplicationContext.getBean("testAttributeInjectWithConstructorNormalBeanId",
@@ -32,6 +38,9 @@ public class TestAttributeInjectBean {
         assertEquals(expectedString, normalBean.toString());
     }
 
+    /**
+     * ! 3、使用自动注入
+     */
     @Test
     public void testAttributeInjectWithAutoWire() {
         NormalBean normalBean = classPathXmlApplicationContext.getBean("testAttributeInjectWithAutoWireNormalBeanId",

@@ -13,7 +13,7 @@
         factory-method="createInstance" depends-on="testAttributeInjectCustomBeanId">
         <constructor-arg name="customBean" ref="testAttributeInjectCustomBeanId" />
     </bean>
-    <!-- ? 1.2 通过实例⼯⼚⽅法实例化 bean -->
+    <!-- ? 1.3 通过实例⼯⼚⽅法实例化 bean -->
     <bean class="com.ieening.BeanFactory" id="beanFactoryId" />
     <bean factory-bean="beanFactoryId" factory-method="createNormalBean"
         id="testNormalBeanWithInstanceFactoryMethod">

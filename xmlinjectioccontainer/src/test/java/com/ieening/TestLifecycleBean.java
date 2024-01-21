@@ -18,6 +18,9 @@ public class TestLifecycleBean {
         classPathXmlApplicationContext.close();
     }
 
+    /**
+     * ! 1、测试接口生命周期回调函数
+     */
     @Test
     public void testLifecycleBeanWithInterface() {
         ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(
@@ -31,6 +34,9 @@ public class TestLifecycleBean {
         assertTrue(LifecycleBeanWithInterface.isDestroy());
     }
 
+    /**
+     * ! 2、测试 XML配置生命周期回调函数
+     */
     @Test
     public void testLifecycleBeanWithInitDestroyMethod() {
         ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(

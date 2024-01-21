@@ -17,12 +17,18 @@ public class TestInstanceBean {
                 "spring_high_order.xml");
     }
 
+    /**
+     * ! 1、使用构造器实例化 bean
+     */
     @Test
     public void testInstanceBeanWithConstructor() {
         Object normalBean = classPathXmlApplicationContext.getBean("testInstanceBeanWithConstructorId");
         assertTrue(normalBean instanceof NormalBean);
     }
 
+    /**
+     * ! 2、使用静态构造方法实例化 bean
+     */
     @Test
     public void testInstanceBeanWithStaticFactoryMethod() {
         Object normalBean = classPathXmlApplicationContext.getBean("testInstanceBeanWithStaticFactoryMethodId");
@@ -31,6 +37,9 @@ public class TestInstanceBean {
         assertEquals(1, attributeInteger);
     }
 
+    /**
+     * ! 3、使用实例⼯⼚⽅法实例化 bean
+     */
     @Test
     public void testInstanceBeanWithInstanceFactoryMethod() {
         Object normalBean = classPathXmlApplicationContext.getBean("testNormalBeanWithInstanceFactoryMethod");
