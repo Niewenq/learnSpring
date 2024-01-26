@@ -7,5 +7,4 @@ public class PoiVo {
     private Integer id;
     private String name;
     private String description;
-
 }

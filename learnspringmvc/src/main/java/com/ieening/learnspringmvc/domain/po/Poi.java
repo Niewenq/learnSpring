@@ -10,7 +10,6 @@ import lombok.Data;
 
 @Data
 @TableName("`poi_table`")
-// @Repository
 public class Poi {
     @TableId(type = IdType.AUTO)
     private Integer id;
@@ -18,5 +17,5 @@ public class Poi {
     private String description;
     private float longitude;
     private float latitude;
-    private String coverUrl;
+    private String imageUrl;
 }
