@@ -9,6 +9,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.ieening.CustomBean;
 import com.ieening.NormalBean;
+import com.ieening.circularreferences.ClassA;
+import com.ieening.circularreferences.ClassB;
 
 public class TestAppConfig {
     private AnnotationConfigApplicationContext annotationConfigApplicationContext;
@@ -28,6 +30,18 @@ public class TestAppConfig {
     public void testDependsOn() {
         NormalBean bean = annotationConfigApplicationContext.getBean("getNormalBean", NormalBean.class);
         assertTrue(1 == bean.getCustomBean().getAttributeInteger());
+    }
+
+    @Test
+    public void testGetClassA() {
+        ClassA bean = annotationConfigApplicationContext.getBean("getClassA", ClassA.class);
+        assertTrue(bean.getClassB() instanceof ClassB);
+    }
+
+    @Test
+    public void testGetClassB() {
+        ClassB bean = annotationConfigApplicationContext.getBean("getClassB", ClassB.class);
+        assertTrue(bean.getClassA() instanceof ClassA);
     }
 
     @After
