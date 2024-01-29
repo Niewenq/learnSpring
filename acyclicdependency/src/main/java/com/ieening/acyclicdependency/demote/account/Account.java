@@ -15,18 +15,17 @@ public class Account {
     }
 
     public void createOrder(BigDecimal chargeAmount) {
-        Order bill = new Order(chargeAmount);
+        Order order = new Order(chargeAmount);
         if (orders == null) {
             orders = new ArrayList<Order>();
         }
-        orders.add(bill);
+        orders.add(order);
     }
 
     public BigDecimal pay(DiscountCalculator discountCalculator) {
         BigDecimal total = new BigDecimal(0);
         for (Order order : orders) {
-            total = total.add(new BigDecimal(1).subtract(discountCalculator.getDiscountAmount())
-                    .multiply(order.getChargeAmount()));
+            total = total.add(order.pay(discountCalculator));
         }
         return total;
     }

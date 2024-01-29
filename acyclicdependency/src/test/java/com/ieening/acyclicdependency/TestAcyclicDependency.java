@@ -44,7 +44,7 @@ public class TestAcyclicDependency {
             account.createOrder(chargeAmount);
         }
         PaymentMediator paymentMediator = new PaymentMediator(account);
-        assertTrue(paymentMediator.pay().doubleValue() == 194);
+        assertTrue(paymentMediator.pay(account.getOrders()).doubleValue() == 194);
     }
 
     @Test
